@@ -16,9 +16,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/'3rdparty/Canlib/Lib/x64/' -lcanlib32
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/'3rdparty/Canlib/Lib/x64/' -lcanlib32
-else:unix: LIBS += -L$$PWD/'3rdparty/Canlib/Lib/x64/' -lcanlib32
+#Download and install kvaser software to default location
+#https://www.kvaser.com/developer/canlib-sdk/
+INCLUDEPATH += "C:\Program Files (x86)\Kvaser\Canlib\INC"
 
-INCLUDEPATH += $$PWD/'3rdparty/Canlib/INC'
-DEPENDPATH += $$PWD/'3rdparty/Canlib/Lib/x64'
+win32:LIBS += -L"C:\Program Files (x86)\Kvaser\Canlib\Lib\MS"
+win32:LIBS += -lcanlib32
